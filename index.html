@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#15343d">
+  <title>Interactive Coding & Robotics Booklet</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#lesson">Skip to lesson</a>
+  <header class="topbar">
+    <button id="menuBtn" class="icon-btn mobile-only" aria-label="Open contents">☰</button>
+    <a class="brand" href="./" aria-label="Booklet home"><span class="brand-mark">C<span>+</span>R</span><span><strong id="brandGrade">Grade</strong><small>Interactive Booklet</small></span></a>
+    <div class="top-actions">
+      <button id="fontBtn" class="icon-btn" aria-label="Change text size">A<sup>+</sup></button>
+      <button id="themeBtn" class="icon-btn" aria-label="Switch colour theme">◐</button>
+      <button id="printBtn" class="text-btn">Print</button>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar" aria-label="Book contents">
+      <div class="side-head">
+        <p class="kicker">Your journey</p>
+        <div class="progress-row"><strong id="progressText">0 of 40</strong><span>lessons done</span></div>
+        <div class="progress-track"><span id="progressBar"></span></div>
+      </div>
+      <label class="search-label">Find a lesson<input id="searchInput" type="search" placeholder="Try ‘robot’ or ‘video’"></label>
+      <nav id="termNav" class="term-nav"></nav>
+      <button id="exportBtn" class="export-btn">⇩ Export my Cornell notes</button>
+      <p class="storage-note">Progress and notes save on this device.</p>
+    </aside>
+    <button id="scrim" class="scrim" aria-label="Close contents"></button>
+
+    <main id="lesson" class="lesson-page" tabindex="-1">
+      <section id="lessonContent" aria-live="polite"></section>
+      <nav class="page-nav" aria-label="Lesson navigation">
+        <button id="prevBtn" class="nav-btn">← Previous</button>
+        <button id="nextBtn" class="nav-btn">Next →</button>
+      </nav>
+    </main>
+  </div>
+
+  <template id="lessonTemplate">
+    <article>
+      <header class="lesson-hero">
+        <div><p class="lesson-label"></p><h1></h1><p class="lesson-goal"></p></div>
+        <div class="week-orbit" aria-hidden="true"><span>WEEK</span><strong></strong></div>
+      </header>
+      <div class="strand-ribbon"><span class="strand-icon"></span><strong class="strand-name"></strong><span>• 2 hours</span></div>
+
+      <section class="content-card learn-card">
+        <div class="section-number">01</div><div><p class="kicker">Learn it</p><h2>What you need to know</h2><ul class="learn-list"></ul></div>
+      </section>
+
+      <section class="content-card activity-card">
+        <div class="section-number">02</div><div><p class="kicker">Try it</p><h2 class="activity-title"></h2><ol class="activity-steps"></ol><p class="tip"></p></div>
+      </section>
+
+      <section class="content-card check-card">
+        <div class="section-number">03</div><div><p class="kicker">Check it</p><h2>Quick knowledge check</h2><form class="quiz-form"><fieldset><legend class="check-question"></legend><div class="check-options"></div><button class="check-btn" type="submit">Check my answer</button><p class="check-feedback" role="status"></p></fieldset></form></div>
+      </section>
+
+      <section class="cornell">
+        <div class="cornell-head"><div><p class="kicker">Make it stick</p><h2>Cornell notes</h2></div><span>Saved automatically</span></div>
+        <div class="cornell-grid">
+          <label class="cornell-cues">Cues / questions<textarea data-note="cues" placeholder="Keywords, questions, diagrams…"></textarea></label>
+          <label class="cornell-notes">Main notes<textarea data-note="notes" placeholder="Explain the lesson in your own words…"></textarea></label>
+          <label class="cornell-summary">2-sentence summary<textarea data-note="summary" placeholder="The most important idea is…"></textarea></label>
+        </div>
+      </section>
+
+      <div class="finish-row"><button class="complete-btn"><span>○</span> Mark lesson complete</button><p>Great learners practise, reflect and improve.</p></div>
+    </article>
+  </template>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
